@@ -117,13 +117,17 @@
                     class="ml-3 list-inside list-disc space-y-1 text-left text-blue-700"
                   >
                     <li>
-                      <span class="text-blue-700">React Native Navigation</span>
+                      <span id="subLi1" class="text-black"
+                        >React Native Navigation</span
+                      >
                     </li>
                     <li>
-                      <span class="text-blue-700">React Navigation</span>
+                      <span id="subLi2" class="text-black"
+                        >React Navigation</span
+                      >
                     </li>
                     <li>
-                      <span class="text-blue-700"
+                      <span id="subLi3" class="text-black"
                         >React Native Router Flux</span
                       >
                     </li>
@@ -322,7 +326,9 @@
             </div>
             <!-- GIT -->
             <div class="content-start text-left">
-              <h2 class="mt-6 text-lg font-semibold">Source Control: Git, Svn</h2>
+              <h2 class="mt-6 text-lg font-semibold">
+                Source Control: Git, Svn
+              </h2>
               <div
                 class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"
               ></div>
@@ -334,14 +340,18 @@
                 <li>Github</li>
                 <li>Bit Bucket</li>
                 <li>Gitlab</li>
-                <li>Contribute for many modules on Github native code, js code</li>
-                <li>Know git flow, command, git tools like source tree, github</li>
+                <li>
+                  Contribute for many modules on Github native code, js code
+                </li>
+                <li>
+                  Know git flow, command, git tools like source tree, github
+                </li>
               </ul>
             </div>
           </div>
           <div
-          class="w-5/5 mb-2 mt-4 border-b-4 border-green-500 opacity-75 content-start"
-        ></div>
+            class="w-5/5 mb-2 mt-4 border-b-4 border-green-500 opacity-75 content-start"
+          ></div>
           <!--CONTACTS SECTION-->
           <div class="pt-4">
             <button
@@ -447,6 +457,7 @@
       const toggle = document.querySelector(".js-change-theme");
       const body = document.querySelector("body");
       const profile = document.getElementById("profile");
+      const subLi = document.getElementById("subLi");
 
       toggle.addEventListener("click", () => {
         if (body.classList.contains("text-gray-900")) {
@@ -455,10 +466,25 @@
           body.classList.add("text-gray-100");
           profile.classList.remove("bg-white");
           profile.classList.add("bg-gray-900");
+
+          subLi1.classList.remove("text-gray-900");
+          subLi2.classList.remove("text-gray-900");
+          subLi3.classList.remove("text-gray-900");
+          subLi1.classList.add("text-black");
+          subLi2.classList.add("text-black");
+          subLi3.classList.add("text-black");
         } else {
           toggle.innerHTML = "🌙";
           body.classList.remove("text-gray-100");
           body.classList.add("text-gray-900");
+
+          subLi1.classList.remove("text-black");
+          subLi2.classList.remove("text-black");
+          subLi3.classList.remove("text-black");
+          subLi1.classList.add("text-gray-900");
+          subLi2.classList.add("text-gray-900");
+          subLi3.classList.add("text-gray-900");
+
           profile.classList.remove("bg-gray-900");
           profile.classList.add("bg-white");
         }
