@@ -18,7 +18,9 @@
 </head>
 
 <body class="font-sans antialiased leading-normal tracking-wider bg-cover"
-  style="background-image: url('https://source.unsplash.com/1L71sPT5XKc')">
+  style="background-image: url('https://source.unsplash.com/1L71sPT5XKc')"
+  onload="onLoad()"
+  >
   <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
     <!--Main Col-->
     <div id="profile"
@@ -48,7 +50,7 @@
       <div class="tab-content" id="tabs-tabContent">
         <div class="tab-pane fade show active" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
           <iframe id="iframe-cv"
-            src="https://drive.google.com/viewerng/viewer?url=https://ntcong91.github.io/pdfs/congnguyen-cv.pdf&embedded=true"
+            src="https://ntcong91.github.io/pdfs/congnguyen-cv.pdf"
             frameborder="0" allowfullscreen style="overflow: hidden; height:580px; width: 100%"></iframe>
         </div>
         <div class="tab-pane fade show hidden" id="tabs-skill" role="tabpanel" aria-labelledby="tabs-skill-tab">
@@ -474,15 +476,20 @@
       tabContents[index].classList.remove("hidden");
 
       if (index === 0) {
-        var iframe = document.getElementById("iframe-cv");
-        var iframeDoc = iframe?.contentDocument;
-        if (iframeDoc?.readyState !== "complete") {
+        var iframe = document.getElementsByTagName("iframe")[0];
+        if (!iframe.contentDocument) {
+
           iframe.src += "";
         }
       }
     }
 
 
+  </script>
+  <script>
+    function onLoad() {
+      changeTab(null, 0)
+    }
   </script>
 </body>
 
