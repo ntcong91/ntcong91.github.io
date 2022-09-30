@@ -474,9 +474,8 @@
       tabContents[index].classList.remove("hidden");
 
       if (index === 0) {
-        var iframe = document.getElementsByTagName("iframe")[0];
-        if (!iframe.contentDocument) {
-
+        var iframe = document.getElementById('iframe-cv');
+        if (!iframe.loaded) {
           iframe.src += "";
         }
       }
