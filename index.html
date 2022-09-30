@@ -48,7 +48,7 @@
       <div class="tab-content" id="tabs-tabContent">
         <div class="tab-pane fade show active" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
           <iframe id="iframe-cv"
-            src="https://docs.google.com/viewerng/viewer?url=https://ntcong91.github.io/pdfs/congnguyen-cv.pdf&embedded=true"
+            src="https://drive.google.com/viewerng/viewer?url=https://ntcong91.github.io/pdfs/congnguyen-cv.pdf&embedded=true"
             frameborder="0" allowfullscreen style="overflow: hidden; height:580px; width: 100%"></iframe>
         </div>
         <div class="tab-pane fade show hidden" id="tabs-skill" role="tabpanel" aria-labelledby="tabs-skill-tab">
@@ -407,6 +407,8 @@
   <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
   <script src="https://unpkg.com/tippy.js@4"></script>
   <script>
+  </script>
+  <script>
     //Init tooltips
     tippy(".link", {
       placement: "bottom",
@@ -473,12 +475,14 @@
 
       if (index === 0) {
         var iframe = document.getElementById("iframe-cv");
-        var iframeDoc = iframe?.contentDocument || iframe?.contentWindow?.document;
+        var iframeDoc = iframe?.contentDocument;
         if (iframeDoc?.readyState !== "complete") {
           iframe.src += "";
         }
       }
     }
+
+
   </script>
 </body>
 
