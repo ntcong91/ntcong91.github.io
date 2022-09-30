@@ -48,6 +48,7 @@
       <div class="tab-content" id="tabs-tabContent">
         <div class="tab-pane fade show active" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
           <iframe
+            id="iframe-cv"
             src="https://docs.google.com/viewerng/viewer?url=https://ntcong91.github.io/pdfs/congnguyen-cv.pdf&embedded=true"
             frameborder="0" allowfullscreen style="overflow: hidden; height:580px; width: 100%"></iframe>
         </div>
@@ -470,6 +471,10 @@
         firstChildOfTab.add("border-green-600");
       }
       tabContents[index].classList.remove("hidden");
+
+      if (index === 0) {
+        document.getElementById('iframe-cv').contentWindow.location.reload();
+      }
     }
   </script>
 </body>
