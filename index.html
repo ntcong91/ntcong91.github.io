@@ -41,14 +41,13 @@
         <li class="nav-item" role="presentation">
           <a onclick="changeTab(event, 2)" href="#tabs-contact"
             class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-6 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
-              id=" tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
+            id=" tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
             aria-controls="tabs-contact" aria-selected="false">CONTACT</a>
         </li>
       </ul>
       <div class="tab-content" id="tabs-tabContent">
         <div class="tab-pane fade show active" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-          <iframe id="iframe-cv"
-            src="https://drive.google.com/file/d/1Bv2FUndKKzxaoFc4ni-2rRvWbyDaevhR/preview"
+          <iframe id="iframe-cv" src="https://drive.google.com/file/d/1Bv2FUndKKzxaoFc4ni-2rRvWbyDaevhR/preview"
             frameborder="0" allowfullscreen style="overflow: hidden; height:580px; width: 100%"></iframe>
         </div>
         <div class="tab-pane fade show hidden" id="tabs-skill" role="tabpanel" aria-labelledby="tabs-skill-tab">
@@ -419,6 +418,7 @@
     const body = document.querySelector("body");
     const profile = document.getElementById("profile");
     const subLi = document.getElementById("subLi");
+    var tabButtons = document.getElementById("tabs-tab").children;
 
     toggle.addEventListener("click", () => {
       if (body.classList.contains("text-gray-900")) {
@@ -435,6 +435,14 @@
         subLi1.classList.add("text-gray-100");
         subLi2.classList.add("text-gray-100");
         subLi3.classList.add("text-gray-100");
+
+        for (var i = 0; i < tabButtons.length; i++) {
+          var tabButtonItem = tabButtons[i].children[0].classList;
+          if (tabButtonItem.contains("hover:bg-gray-100")) {
+            tabButtonItem.remove("hover:bg-gray-100");
+            tabButtonItem.add("hover-bg-green-100");
+          }
+        }
       } else {
         toggle.innerHTML = "🌙";
         body.classList.remove("text-gray-100");
@@ -449,6 +457,14 @@
 
         profile.classList.remove("bg-gray-900");
         profile.classList.add("bg-white");
+
+        for (var i = 0; i < tabButtons.length; i++) {
+          var tabButtonItem = tabButtons[i].children[0].classList;
+          if (tabButtonItem.contains("hover:bg-green-100")) {
+            tabButtonItem.remove("hover:bg-green-100");
+            tabButtonItem.add("hover-bg-gray-100");
+          }
+        }
       }
     });
   </script>
