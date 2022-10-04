@@ -24,23 +24,23 @@
     <div id="profile"
       class="w-full lg:w-5/5 mt-6 mb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-lg shadow-2xl bg-white opacity-86 mx-6 lg:mx-0">
       <ul
-        class="nav nav-tabs flex flex-row md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4 pl-3 focus-within\:border-green-600"
+        class="nav nav-tabs flex flex-row md:flex-row justify-center list-none border-b-0 pl-0 mb-4 pl-3 focus-within\:border-green-600"
         id="tabs-tab" role="tablist">
         <li class="nav-item" role="presentation">
           <a onclick="changeTab(event, 0)" href="#tabs-profile"
-            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-6 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-green-600"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-green-600"
             id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
             aria-controls="tabs-profile" aria-selected="false">Profile</a>
         </li>
         <li class="nav-item" role="presentation">
           <a onclick="changeTab(event, 1)" href="#tabs-skill"
-            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-6 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
             id="tabs-detail-tab" data-bs-toggle="pill" data-bs-target="#tabs-skill" role="tab"
-            aria-controls="tabs-skill" aria-selected="false">DETAILS</a>
+            aria-controls="tabs-skill" aria-selected="false">TECHNICAL</a>
         </li>
         <li class="nav-item" role="presentation">
           <a onclick="changeTab(event, 2)" href="#tabs-contact"
-            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-6 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
             id=" tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
             aria-controls="tabs-contact" aria-selected="false">CONTACTS</a>
         </li>
@@ -407,104 +407,11 @@
   <script src="https://unpkg.com/tippy.js@4"></script>
   <script>
   </script>
-  <script>
-    //Init tooltips
-    tippy(".link", {
-      placement: "bottom",
-    });
 
-    //Toggle mode
-    const toggle = document.querySelector(".js-change-theme");
-    const body = document.querySelector("body");
-    const profile = document.getElementById("profile");
-    const subLi = document.getElementById("subLi");
-    var tabButtons = document.getElementById("tabs-tab").children;
-
-    toggle.addEventListener("click", () => {
-      if (body.classList.contains("text-gray-900")) {
-        toggle.innerHTML = "☀️";
-        body.classList.remove("text-gray-900");
-        body.classList.add("text-gray-100");
-
-        profile.classList.remove("bg-white");
-        profile.classList.add("bg-gray-900");
-
-        subLi1.classList.remove("text-gray-900");
-        subLi2.classList.remove("text-gray-900");
-        subLi3.classList.remove("text-gray-900");
-        subLi1.classList.add("text-gray-100");
-        subLi2.classList.add("text-gray-100");
-        subLi3.classList.add("text-gray-100");
-
-        for (var i = 0; i < tabButtons.length; i++) {
-          var tabButtonItem = tabButtons[i].children[0].classList;
-          if (tabButtonItem.contains("hover:bg-gray-100")) {
-            tabButtonItem.remove("hover:bg-gray-100");
-            tabButtonItem.add("hover-bg-green-100");
-          }
-        }
-      } else {
-        toggle.innerHTML = "🌙";
-        body.classList.remove("text-gray-100");
-        body.classList.add("text-gray-900");
-
-        subLi1.classList.remove("text-gray-100");
-        subLi2.classList.remove("text-gray-100");
-        subLi3.classList.remove("text-gray-100");
-        subLi1.classList.add("text-gray-900");
-        subLi2.classList.add("text-gray-900");
-        subLi3.classList.add("text-gray-900");
-
-        profile.classList.remove("bg-gray-900");
-        profile.classList.add("bg-white");
-
-        for (var i = 0; i < tabButtons.length; i++) {
-          var tabButtonItem = tabButtons[i].children[0].classList;
-          if (tabButtonItem.contains("hover:bg-green-100")) {
-            tabButtonItem.remove("hover:bg-green-100");
-            tabButtonItem.add("hover-bg-gray-100");
-          }
-        }
-      }
-    });
+  <script src="./scripts/themes.js">
   </script>
-  <script>
-    function changeTab(event, index) {
-      var tabButtons = document.getElementById("tabs-tab").children;
-      var tabContents = document.getElementById("tabs-tabContent").children;
 
-      for (var i = 0; i < tabButtons.length; i++) {
-        var tabButtonItem = tabButtons[i].children[0].classList;
-        var tabContentItem = tabContents[i].classList;
-        if (tabButtonItem.contains("border-green-600")) {
-          tabButtonItem.remove("border-green-600");
-          tabButtonItem.add("border-transparent");
-        }
-        tabContentItem.add("hidden");
-      }
-
-      const firstChildOfTab = tabButtons[index].children[0].classList;
-      if (!firstChildOfTab.contains("border-green-600")) {
-        firstChildOfTab.add("border-green-600");
-      }
-      tabContents[index].classList.remove("hidden");
-
-      if (index === 0) {
-        // check and reload
-        // var iframe = document.getElementById('iframe-cv');
-        // if (!iframe.loaded) {
-        //   iframe.src += "";
-        // }
-      }
-    }
-
-
-  </script>
-  <script>
-    function onLoad() {
-      changeTab(null, 0)
-    }
-  </script>
+ <script src="./scripts/index.js"></script>
 </body>
 
 </html>
