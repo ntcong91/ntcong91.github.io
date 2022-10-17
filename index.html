@@ -19,7 +19,17 @@
 
 <body class="font-sans antialiased leading-normal tracking-wider bg-cover"
   style="background-image: url('https://source.unsplash.com/1L71sPT5XKc')" onload="onLoad()">
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@4"></script>
+  <script src="./scripts/includeHTML.js"></script>
+  <script src="./scripts/themes.js"></script>
+  <script src="./scripts/index.js"></script>
+  <!-- SCRIPTS -->
+
   <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+
     <!--Main Col-->
     <div id="profile"
       class="w-full lg:w-5/5 mt-6 mb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-lg shadow-2xl bg-white opacity-86 mx-6 lg:mx-0">
@@ -30,7 +40,7 @@
           <a onclick="changeTab(event, 0)" href="#tabs-profile"
             class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-green-600"
             id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
-            aria-controls="tabs-profile" aria-selected="false">Profile</a>
+            aria-controls="tabs-profile" aria-selected="false">SUMMARY</a>
         </li>
         <li class="nav-item" role="presentation">
           <a onclick="changeTab(event, 1)" href="#tabs-skill"
@@ -402,16 +412,9 @@
       <button class="js-change-theme focus:outline-none text-3xl">🌙</button>
     </div>
   </div>
-
-  <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
-  <script src="https://unpkg.com/tippy.js@4"></script>
   <script>
+    includeHTML();
   </script>
-
-  <script src="./scripts/themes.js">
-  </script>
-
- <script src="./scripts/index.js"></script>
 </body>
 
 </html>
