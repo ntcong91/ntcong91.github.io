@@ -31,7 +31,7 @@
   <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
 
     <!--Main Col-->
-    <!-- <div id="profile"
+    <div id="profile"
       class="w-full lg:w-5/5 mt-6 mb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-lg shadow-2xl bg-white opacity-86 mx-6 lg:mx-0">
       <ul
         class="nav nav-tabs flex flex-row md:flex-row justify-center list-none border-b-0 pl-0 mb-4 pl-3 focus-within\:border-green-600"
@@ -405,7 +405,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <!-- Pin to top right corner -->
     <div class="absolute top-0 right-0 h-12 w-18 p-4">
