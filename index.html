@@ -23,6 +23,7 @@
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
   <script src="https://unpkg.com/tippy.js@4"></script>
+  <script src="./scripts/includeHTML.js"></script>
   <script src="./scripts/themes.js"></script>
   <script src="./scripts/index.js"></script>
   <!-- SCRIPTS -->
@@ -30,12 +31,389 @@
   <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
 
     <!--Main Col-->
+    <div id="profile"
+      class="w-full lg:w-5/5 mt-6 mb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-lg shadow-2xl bg-white opacity-86 mx-6 lg:mx-0">
+      <ul
+        class="nav nav-tabs flex flex-row md:flex-row justify-center list-none border-b-0 pl-0 mb-4 pl-3 focus-within\:border-green-600"
+        id="tabs-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a onclick="changeTab(event, 0)" href="#tabs-profile"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-green-600"
+            id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+            aria-controls="tabs-profile" aria-selected="false">SUMMARY</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a onclick="changeTab(event, 1)" href="#tabs-skill"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
+            id="tabs-detail-tab" data-bs-toggle="pill" data-bs-target="#tabs-skill" role="tab"
+            aria-controls="tabs-skill" aria-selected="false">TECHNICAL</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a onclick="changeTab(event, 2)" href="#tabs-contact"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
+            id=" tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
+            aria-controls="tabs-contact" aria-selected="false">CONTACTS</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="tabs-tabContent">
+        <div class="tab-pane fade show active" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+          <iframe id="iframe-cv" src="https://drive.google.com/file/d/1UkRl13x-WXsP54aAnum4P6Fj0I5tbLeq/preview"
+            frameborder="0" allowfullscreen style="overflow: hidden; height:580px; width: 100%"></iframe>
+        </div>
+        <div class="tab-pane fade show hidden" id="tabs-skill" role="tabpanel" aria-labelledby="tabs-skill-tab">
+          <div class="p-4 md:p-12 text-center lg:text-left mt-12">
+            <!-- Image for mobile view-->
+            <img src="images/imgProfile.png"
+              class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" />
+
+            <h1 class="text-3xl font-bold pt-8 lg:pt-0">Cong Nguyen</h1>
+            <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
+              <svg class="h-4 fill-current text-green-600 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path
+                  d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
+              </svg>
+              Senior Mobile Developer
+            </p>
+            <p class="pt-2 text-base font-regular flex items-center justify-center lg:justify-start">
+              <svg class="h-4 fill-current text-green-600 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path
+                  d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm7.75-8a8.01 8.01 0 0 0 0-4h-3.82a28.81 28.81 0 0 1 0 4h3.82zm-.82 2h-3.22a14.44 14.44 0 0 1-.95 3.51A8.03 8.03 0 0 0 16.93 14zm-8.85-2h3.84a24.61 24.61 0 0 0 0-4H8.08a24.61 24.61 0 0 0 0 4zm.25 2c.41 2.4 1.13 4 1.67 4s1.26-1.6 1.67-4H8.33zm-6.08-2h3.82a28.81 28.81 0 0 1 0-4H2.25a8.01 8.01 0 0 0 0 4zm.82 2a8.03 8.03 0 0 0 4.17 3.51c-.42-.96-.74-2.16-.95-3.51H3.07zm13.86-8a8.03 8.03 0 0 0-4.17-3.51c.42.96.74 2.16.95 3.51h3.22zm-8.6 0h3.34c-.41-2.4-1.13-4-1.67-4S8.74 3.6 8.33 6zM3.07 6h3.22c.2-1.35.53-2.55.95-3.51A8.03 8.03 0 0 0 3.07 6z" />
+              </svg>
+              Danang city - Vietnam
+            </p>
+            <p class="pt-8 text-sm font-semibold">
+              🎯 Build full stacks: Mobile App - Website - Backend - UI - UX -
+              DevOps - Marketing.
+            </p>
+
+            <!-- SKILL SECTION -->
+            <div class="content-start">
+              <div class="content-start text-left">
+                <!-- REACT NATIVE -->
+                <h2 class="mt-6 text-lg font-semibold text-green-600">
+                  React Native (more than 6.5 years)
+                </h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>
+                    <b>Firebase</b>: Auth, OTP, Notification, RealTime
+                    Database, Functions
+                  </li>
+                  <li><b>Audio, Video Call</b>: Twilio, CallKeep</li>
+                  <li><b>Live stream</b>: Mug</li>
+                  <li><b>AWS</b>: Amplify js, aws-sdk</li>
+                  <li><b>Graphql</b></li>
+                  <li><b>DeepLink</b>: Universal, Setup Firebase DeepLink</li>
+                  <li>
+                    <b>GeoLocation</b>: React Native Background GeoLocation
+                    Tracking
+                  </li>
+                  <li>
+                    <b>App Permissions</b>: Permission flow, submit form to
+                    store, Platform iOS, API level on Android
+                  </li>
+                  <li><b>QR Code</b>: Generate & Scan</li>
+                  <li>
+                    <b>Native Modules</b>: UI & Call native code functions,
+                    promises from js code
+                  </li>
+                  <li>
+                    <b>App Navigation</b>
+                    <ul role="list" class="ml-3 list-inside list-disc space-y-1 text-left text-blue-700">
+                      <li>
+                        <span id="subLi1" class="text-black">React Native Navigation</span>
+                      </li>
+                      <li>
+                        <span id="subLi2" class="text-black">React Navigation</span>
+                      </li>
+                      <li>
+                        <span id="subLi3" class="text-black">React Native Router Flux</span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <b>Player, Recorder</b>: Audio, Video Player & Recorder.
+                    Background Audio
+                  </li>
+                  <li><b>Socket</b>: Socket io client</li>
+                  <li>
+                    <b>Crashes tools, SDK</b>: Firebase Crashlytics, Sentry
+                  </li>
+                  <li>
+                    <b>Code Push</b>
+                  </li>
+                  <li>
+                    <b>App performance</b>: Hermes, RAM bundling, cached
+                  </li>
+                  <li>
+                    <b>Code formatter</b> Eslint, Tslint, Prettier setup
+                  </li>
+                  <li>
+                    <b>Storage</b>: redux persist, async-storage, native
+                    Android, migrate old persist local data to new version iOS
+                  </li>
+                  <li>
+                    <b>Splash screen</b>
+                  </li>
+                  <li><b>Multi-Environments</b> React Native Config</li>
+                  <li>
+                    <b>Social</b>: Auth, Sharing, Post (Facebook, Twitter,
+                    Zalo, Google), Setup firebase console & IAM google
+                  </li>
+                  <li>
+                    <b>Map</b>: Map Box, React Native Map, Google Map & Places
+                    API, Improve performance
+                  </li>
+                  <li><b>Migrate app</b>: From js to flow, ts</li>
+                  <li>
+                    <b>Debug</b>: Android Studio, Command Line (adb logcat),
+                    Xcode
+                  </li>
+                  <li>
+                    <b>Github</b>: Can fix native code, fork github modules
+                  </li>
+                  <li>
+                    <b>Connect API</b> fetch (React Native/js standard lib),
+                    axios
+                  </li>
+                  <li>
+                    <b>Redux</b>: Redux persist, redux toolkit, redux saga,
+                    RTK query, redux.
+                  </li>
+                  <li>
+                    <b>Native code</b>: Know objective-c, swift, java for
+                    Android, Kotlin
+                  </li>
+                  <li>
+                    <b>SVG & Icon Fonts</b>: React Native SVG, React Native
+                    Vector Icons
+                  </li>
+                  <li>
+                    <b>Purchasing</b>: stripe, In App Purchase iOS & Android,
+                    Submit App
+                  </li>
+                  <li><b>Upload, download</b>: Photo, Audio, Video</li>
+                  <li><b>Security</b>: App checked, hash key, host</li>
+                  <li><b>Pagination</b>: FlatList</li>
+                  <li>
+                    <b>Class Component, Function Component LifeCycle,
+                      AppState</b>
+                  </li>
+                  <li>
+                    <b>Localization</b>: js localization lib, native
+                    localization likes info.plist localization (permissions,
+                    app name)
+                  </li>
+                  <li>
+                    <b>React Hooks</b>: useState, useMemo, useEffect,
+                    useCallback, useImperialHandle
+                  </li>
+                  <li><b>typescript, javascript ES5, ES6, ESNext</b></li>
+                  <li>
+                    <b>Setup Project</b>: Can setup project from beginning
+                    with good structure
+                  </li>
+                  <li>
+                    <b>Responsive & rotation</b>: Code for many devices,
+                    tablet, lock & unlock orientation by Navigation module,
+                    native code.
+                  </li>
+                  <li><b>Ads</b>: Google Ads, facebook ads</li>
+                  <li><b>Date, Time</b>: Calendar, Date & Time picker</li>
+                </ul>
+                <br />
+              </div>
+
+              <!--- OTHER SKILLS -->
+              <div class="content-start text-left">
+                <h2 class="mt-6 text-lg font-semibold text-green-600">
+                  Flutter
+                </h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>Learn dart language</li>
+                  <li>Read docs & coding style guidelines</li>
+                  <li>Build example app.</li>
+                  <li>Install packages/modules</li>
+                </ul>
+              </div>
+              <div class="mt-6 mb-3content-start text-left">
+                <h2 class="mt-6 text-lg font-semibold text-green-600">
+                  OpenGL - JNI (Game)
+                </h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>
+                    <b>Languages</b>: C++, Java, Objective-C or Swift, Python
+                  </li>
+                  <li><b>OpenGL</b>: Animation, 3D, 2D, Shader</li>
+                </ul>
+              </div>
+              <div class="mt-6 mb-3content-start text-left">
+                <h2 class="mt-6 text-lg font-semibold text-green-600">
+                  Unity & Cocos (Game)
+                </h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>Build many cocos & unity apps.</li>
+                  <li>Deployed two unity games to AppleStore, PlayStore</li>
+                </ul>
+              </div>
+
+              <div class="content-start text-left">
+                <h2 class="mt-6 text-lg font-semibold text-green-600">Web</h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>Know basic html, css</li>
+                  <li>WordPress</li>
+                  <li>ReactJS</li>
+                </ul>
+              </div>
+              <div class="content-start text-left">
+                <h2 class="mt-6 text-lg font-semibold text-green-600">
+                  Back End & Dev-ops
+                </h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>Deployed my personal app to the stores</li>
+                  <li>
+                    Deployed many mobile applications to AppStore, PlayStore
+                  </li>
+                  <li>
+                    Know & update frequently PlayStore, AppleStore guidelines,
+                    rules.
+                  </li>
+                  <li>
+                    <b>App distribution</b>: firebase, fastlane, test-flight,
+                    AppCenter
+                  </li>
+                  <li>Setup app with firebase, apple developer profile</li>
+                  <li>Know docker, docker compose, pm2</li>
+                  <li>Know FastLane</li>
+                  <li>Circle CI</li>
+                  <li>Can write bash, python, gradle scripts</li>
+                  <li>Firebase cloud functions</li>
+                  <li>Amplify setup on AWS</li>
+                  <li>Deployed personal website ReactJs & node, wordpress</li>
+                  <li>Postgresql: two years</li>
+                  <li>Mongodb: one year</li>
+                </ul>
+              </div>
+              <!-- DESIGN -->
+              <div class="content-start text-left">
+                <h2 class="mt-6 text-lg font-semibold text-green-600">
+                  Design
+                </h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>Material Design</li>
+                  <li>Adobe PhotoShop</li>
+                  <li>Adobe Illustrator</li>
+                  <li>Figma</li>
+                  <li>ZepLin</li>
+                  <li>Sketch</li>
+                  <li>
+                    Have Design mindcept & can code draft version without
+                    available design
+                  </li>
+                </ul>
+              </div>
+              <!-- GIT -->
+              <div class="content-start text-left">
+                <h2 class="mt-6 text-lg font-semibold text-green-600">
+                  Source Control: Git, Svn
+                </h2>
+                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
+                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
+                  <li>Svn</li>
+                  <li>Github</li>
+                  <li>Bit Bucket</li>
+                  <li>Gitlab</li>
+                  <li>
+                    Contribute for many modules on Github native code, js code
+                  </li>
+                  <li>
+                    Know git flow, command, git tools like source tree, github
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-5/5 mb-2 mt-4 border-b-4 border-green-500 opacity-75 content-start"></div>
+          </div>
+        </div>
+        <div class="tab-pane fade show hidden" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
+          <div class="mt-6 pb-16 lg:pb-0 w-5/5 lg:w-full mx-auto flex flex-col items-start justify-center">
+            <a class="link" href="https://facebook.com/ntcong91" data-tippy-content="@facebook_handle">
+              <div class="flex justify-between items-center">
+                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>Facebook</title>
+                  <path
+                    d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0" />
+                </svg>
+                <h2>https://facebook.com/ntcong91</h2>
+              </div>
+            </a>
+
+            <a class="link" href="https://github.com/ntcong91" data-tippy-content="@github_handle">
+              <div class="flex justify-between items-center">
+                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                <h2>https://github.com/ntcong91</h2>
+              </div>
+            </a>
+
+            <a class="link" href="https://github.com/congnguyen91" data-tippy-content="@github_handle">
+              <div class="flex justify-between items-center">
+
+                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                <h2>https://github.com/congnguyen91</h2>
+              </div>
+            </a>
+            <a class="link" href="tel:+84982709185">
+              <div class=" link flex justify-between items-center">
+                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
+                  <title>GitHub</title>
+                  <path
+                    d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <h2>+84 982 709 185</h2>
+              </div>
+            </a>
+            <a class="link" href="mailto:tricong09t3@gmail.com">
+              <div class="flex justify-between items-center">
+                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 8 6"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z" />
+                </svg>
+                <h2>tricong09t3@gmail.com</h2>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Pin to top right corner -->
     <div class="absolute top-0 right-0 h-12 w-18 p-4">
       <button class="js-change-theme focus:outline-none text-3xl">🌙</button>
     </div>
   </div>
   <script>
+    includeHTML();
   </script>
 </body>
 
