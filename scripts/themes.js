@@ -1,64 +1,44 @@
 function handleTheme() {
-  //Init tooltips
-  tippy(".link", {
-    placement: "bottom",
-  });
+  if (window.tippy) {
+    tippy(".link", { placement: "bottom" });
+  }
 
-  //Toggle mode
-  const toggle = document.querySelector(".js-change-theme");
-  const body = document.querySelector("body");
-  const profile = document.getElementById("profile");
-  const subLi1 = document.getElementById("subLi1");
-  const subLi2 = document.getElementById("subLi2");
-  const subLi3 = document.getElementById("subLi3");
+  var toggle = document.querySelector(".js-change-theme");
+  var root = document.documentElement;
 
-  var tabButtons = document.getElementById("tabs-tab").children;
-
-  toggle.addEventListener("click", () => {
-    if (body.classList.contains("text-gray-900") ||  !body.classList.contains("text-gray-100")) {
-      toggle.innerHTML = "☀️";
-      body.classList.remove("text-gray-900");
-      body.classList.add("text-gray-100");
-
-      profile.classList.remove("bg-white");
-      profile.classList.add("bg-gray-900");
-
-      subLi1.classList.remove("text-gray-900");
-      subLi2.classList.remove("text-gray-900");
-      subLi3.classList.remove("text-gray-900");
-      subLi1.classList.add("text-gray-100");
-      subLi2.classList.add("text-gray-100");
-      subLi3.classList.add("text-gray-100");
-
-      for (var i = 0; i < tabButtons.length; i++) {
-        var tabButtonItem = tabButtons[i].children[0].classList;
-        if (tabButtonItem.contains("hover:bg-gray-100")) {
-          tabButtonItem.remove("hover:bg-gray-100");
-          tabButtonItem.add("hover-bg-green-100");
-        }
-      }
+  function applyTheme(mode) {
+    if (mode === "dark") {
+      root.classList.add("theme-dark");
+      if (toggle) toggle.innerHTML = "☀️";
     } else {
-      toggle.innerHTML = "🌙";
-      body.classList.remove("text-gray-100");
-      body.classList.add("text-gray-900");
-
-      subLi1.classList.remove("text-gray-100");
-      subLi2.classList.remove("text-gray-100");
-      subLi3.classList.remove("text-gray-100");
-      subLi1.classList.add("text-gray-900");
-      subLi2.classList.add("text-gray-900");
-      subLi3.classList.add("text-gray-900");
-
-      profile.classList.remove("bg-gray-900");
-      profile.classList.add("bg-white");
-
-      for (var i = 0; i < tabButtons.length; i++) {
-        var tabButtonItem = tabButtons[i].children[0].classList;
-        if (tabButtonItem.contains("hover:bg-green-100")) {
-          tabButtonItem.remove("hover:bg-green-100");
-          tabButtonItem.add("hover-bg-gray-100");
-        }
-      }
+      root.classList.remove("theme-dark");
+      if (toggle) toggle.innerHTML = "🌙";
     }
-  });
+    try {
+      localStorage.setItem("theme", mode);
+    } catch (e) {}
+  }
+
+  var stored = null;
+  try {
+    stored = localStorage.getItem("theme");
+  } catch (e) {}
+
+  if (stored === "dark") {
+    applyTheme("dark");
+  } else if (stored === "light") {
+    applyTheme("light");
+  } else {
+    var prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    applyTheme(prefersDark ? "dark" : "light");
+  }
+
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var isDark = root.classList.contains("theme-dark");
+      applyTheme(isDark ? "light" : "dark");
+    });
+  }
 }

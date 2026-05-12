@@ -5,416 +5,936 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Cong Nguyen's Profile</title>
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <meta name="author" content="" />
+  <title>Vincent Nguyen — Senior Full Stack Developer · Mobile Team Leader</title>
+  <meta name="description"
+    content="Vincent Nguyen (Cong Nguyen) — Senior Full Stack Developer & Mobile Team Leader with 10+ years building React Native, Expo, web, backend, and cloud systems." />
+  <meta name="keywords"
+    content="Vincent Nguyen, Cong Nguyen, React Native, Expo, EAS Update, Stallion, MMKV, Senior Mobile Developer, Full Stack, Da Nang, Vietnam" />
+  <meta name="author" content="Vincent Nguyen" />
 
-  <!-- Font Awesome if you need it
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  -->
-  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-  <!--Replace with your tailwind.css once created-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --border: #e5e7eb;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-soft: #64748b;
+      --primary: #059669;
+      --primary-strong: #047857;
+      --primary-soft: rgba(5, 150, 105, 0.08);
+      --primary-border: rgba(5, 150, 105, 0.25);
+      --accent: #0ea5e9;
+      --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+      --radius: 14px;
+    }
+
+    html.theme-dark {
+      --bg: #0b1220;
+      --surface: #111827;
+      --surface-2: #0f172a;
+      --border: #1f2a3d;
+      --text: #e5e7eb;
+      --text-muted: #cbd5e1;
+      --text-soft: #94a3b8;
+      --primary: #10b981;
+      --primary-strong: #34d399;
+      --primary-soft: rgba(16, 185, 129, 0.12);
+      --primary-border: rgba(16, 185, 129, 0.35);
+      --accent: #38bdf8;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: -0.005em;
+      line-height: 1.55;
+    }
+
+    code, .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    /* Header card */
+    .header-card {
+      position: relative;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #0d9488 100%);
+      color: #ecfdf5;
+      padding: 28px 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    html.theme-dark .header-card {
+      background: linear-gradient(135deg, #052e29 0%, #064e3b 60%, #0f3a52 100%);
+    }
+
+    .header-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 90% -10%, rgba(255,255,255,.18), transparent 40%),
+        radial-gradient(circle at -10% 110%, rgba(255,255,255,.10), transparent 40%);
+      pointer-events: none;
+    }
+
+    .header-row {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+    }
+
+    .header-name {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .header-title {
+      font-size: 14px;
+      opacity: 0.95;
+      margin-top: 4px;
+    }
+
+    .header-meta {
+      margin-top: 10px;
+      font-size: 13px;
+      opacity: 0.9;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .header-meta span { white-space: nowrap; }
+
+    .quick-links {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .quick-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .quick-links a:hover,
+    .quick-links a:focus {
+      background: #ffffff;
+      color: var(--primary-strong);
+    }
+
+    .quick-links a:visited { color: #ffffff; }
+
+    /* Card */
+    .card {
+      margin-top: 16px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Sticky tabs — must NOT have overflow:hidden on ancestor */
+    .tabs {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 4px;
+      padding: 8px 10px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      border-radius: var(--radius) var(--radius) 0 0;
+      backdrop-filter: saturate(140%) blur(8px);
+      -webkit-backdrop-filter: saturate(140%) blur(8px);
+      list-style: none;
+      margin: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tab-content {
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+
+    .tabs li { list-style: none; }
+
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+    }
+
+    .tab-btn.tab-active {
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+      border-color: var(--primary-border);
+    }
+
+    .tab-content { padding: 28px 28px 36px; background: var(--surface); }
+    .tab-pane.hidden { display: none !important; }
+
+    /* Typography helpers */
+    h2.section {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--primary-strong);
+      margin: 28px 0 4px;
+    }
+    h2.section:first-child { margin-top: 0; }
+
+    .section-rule {
+      width: 56px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    p, li { color: var(--text-muted); font-size: 14.5px; }
+    b, strong { color: var(--text); font-weight: 600; }
+
+    ul.clean { margin: 6px 0; padding-left: 18px; }
+    ul.clean li { margin: 3px 0; }
+
+    /* Strengths grid */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .strength {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: var(--surface-2);
+    }
+    .strength-title {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); display: inline-block; }
+    .strength p { font-size: 13.5px; margin: 0; }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .chip {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--primary-strong);
+      background: var(--primary-soft);
+      border: 1px solid var(--primary-border);
+      white-space: nowrap;
+    }
+
+    /* Experience role */
+    .role {
+      position: relative;
+      padding: 14px 16px 14px 18px;
+      border-left: 3px solid var(--primary);
+      background: var(--surface-2);
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 14px;
+    }
+    .role-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: baseline;
+    }
+    .role-title { font-weight: 700; color: var(--text); font-size: 15px; }
+    .role-meta { font-size: 12px; color: var(--text-soft); }
+    .role-sub { color: var(--text-soft); font-style: italic; font-size: 13px; margin: 2px 0 8px; }
+    .role .stack { font-size: 13px; margin-top: 6px; }
+
+    /* Project cards */
+    .project {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: var(--surface-2);
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .project:hover { border-color: var(--primary-border); }
+    .project-title { color: var(--text); font-weight: 700; font-size: 14.5px; }
+    .project-meta { color: var(--text-soft); font-size: 12px; font-weight: 500; }
+    .project p { font-size: 13.5px; margin: 6px 0 0; }
+    .project .stack { font-size: 12.5px; margin-top: 6px; color: var(--text-soft); }
+
+    /* Contact rows */
+    .contact-list { display: flex; flex-direction: column; gap: 4px; }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s ease;
+    }
+    .contact-row:hover { background: var(--primary-soft); color: var(--primary-strong); }
+    .contact-row svg { flex-shrink: 0; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 50;
+    }
+
+    /* Subtle in-page anchor for tabs */
+    [data-tab-anchor] { scroll-margin-top: 70px; }
+
+    /* CV iframe — tall enough to render the full PDF without internal scroll */
+    .cv-frame {
+      width: 100%;
+      height: clamp(1600px, 240vh, 3600px);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .cv-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .cv-link {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--primary-strong);
+      background: var(--primary-soft);
+      border: 1px solid var(--primary-border);
+    }
+    .cv-link:hover { background: var(--primary); color: #fff; }
+
+    @media (max-width: 640px) {
+      .header-row { flex-direction: column; text-align: center; }
+      .header-meta { justify-content: center; }
+      .quick-links { justify-content: center; }
+      .header-name { font-size: 22px; }
+      .tab-content { padding: 22px 18px 28px; }
+    }
+  </style>
 </head>
 
-<body class="font-sans antialiased leading-normal tracking-wider bg-cover"
-  style="background-image: url('https://source.unsplash.com/1L71sPT5XKc')" onload="onLoad()">
+<body onload="onLoad()">
 
-  <!-- SCRIPTS -->
+  <button class="theme-toggle js-change-theme" aria-label="Toggle theme">🌙</button>
+
+  <main class="wrap">
+
+    <!-- HEADER -->
+    <section class="header-card">
+      <div class="header-row">
+        <img class="avatar" src="images/imgProfile.png" alt="Vincent Nguyen" />
+        <div>
+          <h1 class="header-name">VINCENT NGUYEN</h1>
+          <div class="header-title">Senior Full Stack Developer · Mobile Team Leader · Product Owner</div>
+          <div class="header-meta">
+            <span>📍 Da Nang, Vietnam</span>
+            <span>✉ tricong09t3@gmail.com</span>
+            <span>☎ +84 982 709 185</span>
+          </div>
+          <div class="quick-links">
+            <a href="https://github.com/ntcong91" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/congnguyen91" target="_blank" rel="noopener">GitHub (work)</a>
+            <a href="https://facebook.com/ntcong91" target="_blank" rel="noopener">Facebook</a>
+            <a href="mailto:tricong09t3@gmail.com">Email</a>
+            <a href="tel:+84982709185">Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABS CARD -->
+    <section class="card">
+      <ul class="tabs" id="tabs-tab" role="tablist" aria-label="Sections">
+        <li role="presentation">
+          <a class="tab-btn tab-active" href="#summary" onclick="changeTab(event, 0)"
+            role="tab" aria-controls="tabs-summary" aria-selected="true">Summary</a>
+        </li>
+        <li role="presentation">
+          <a class="tab-btn" href="#experience" onclick="changeTab(event, 1)"
+            role="tab" aria-controls="tabs-experience" aria-selected="false">Experience</a>
+        </li>
+        <li role="presentation">
+          <a class="tab-btn" href="#technical" onclick="changeTab(event, 2)"
+            role="tab" aria-controls="tabs-technical" aria-selected="false">Technical</a>
+        </li>
+        <li role="presentation">
+          <a class="tab-btn" href="#projects" onclick="changeTab(event, 3)"
+            role="tab" aria-controls="tabs-projects" aria-selected="false">Projects</a>
+        </li>
+        <li role="presentation">
+          <a class="tab-btn" href="#contact" onclick="changeTab(event, 4)"
+            role="tab" aria-controls="tabs-contact" aria-selected="false">Contact</a>
+        </li>
+        <li role="presentation">
+          <a class="tab-btn" href="#cv" onclick="changeTab(event, 5)"
+            role="tab" aria-controls="tabs-cv" aria-selected="false">CV</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="tabs-tabContent">
+
+        <!-- SUMMARY -->
+        <div class="tab-pane" id="tabs-summary" role="tabpanel" data-tab-anchor>
+          <h2 class="section">Profile</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li>Mobile-first Full Stack Developer with <b>10+ years</b> shipping production-ready mobile apps, admin platforms, backend services, and cloud infrastructure.</li>
+            <li>Technical leader — leading mobile teams, reviewing PRs, mentoring developers, and resolving complex issues across React Native, native iOS/Android, web, backend, and DevOps.</li>
+            <li>Product-minded engineer — design UI/UX flows in Figma, scope features, set up CI/CD, deploy to app stores, and work directly with clients, POs, BAs, QA, and PMs.</li>
+          </ul>
+
+          <h2 class="section">Core Strengths</h2>
+          <div class="section-rule"></div>
+          <div class="grid-2">
+            <div class="strength">
+              <div class="strength-title"><span class="dot"></span>Product Builder</div>
+              <p>Set up mobile, web, backend, cloud, CI/CD, analytics, and deployment workflows from scratch.</p>
+            </div>
+            <div class="strength">
+              <div class="strength-title"><span class="dot"></span>Technical Leadership</div>
+              <p>Lead teams, review architecture and PRs, mentor developers, and unblock delivery risks.</p>
+            </div>
+            <div class="strength">
+              <div class="strength-title"><span class="dot"></span>UI / UX Mindset</div>
+              <p>Improve feature flows, mobile layouts, admin usability, and end-to-end user experience.</p>
+            </div>
+            <div class="strength">
+              <div class="strength-title"><span class="dot"></span>Client Collaboration</div>
+              <p>Communicate with international clients and cross-functional teams to align delivery goals.</p>
+            </div>
+          </div>
+
+          <h2 class="section">Technology Keywords</h2>
+          <div class="section-rule"></div>
+          <div class="chips">
+            <span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">iOS</span><span class="chip">Android</span><span class="chip">Kotlin</span><span class="chip">Swift</span><span class="chip">Objective-C</span><span class="chip">Flutter</span><span class="chip">React.js</span><span class="chip">React Admin</span><span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">Firebase</span><span class="chip">AWS</span><span class="chip">Google Cloud</span><span class="chip">MongoDB</span><span class="chip">PostgreSQL</span><span class="chip">GraphQL</span><span class="chip">Python</span><span class="chip">Figma</span><span class="chip">Photoshop</span><span class="chip">Unity</span><span class="chip">Cocos2D</span><span class="chip">C/C++</span>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="tab-pane hidden" id="tabs-experience" role="tabpanel" data-tab-anchor>
+          <h2 class="section">Professional Experience</h2>
+          <div class="section-rule"></div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Senior Full Stack Developer · Xenia.tech</span>
+              <span class="role-meta">May 2025 – May 2026 · Remote</span>
+            </div>
+            <div class="role-sub">Sports, sales, and marketing products — retention & engagement focus.</div>
+            <ul class="clean">
+              <li>Owned key development for a sports mobile application, improving usability, stability, and engagement.</li>
+              <li>Designed and implemented a Sales & Marketing system for user interaction, lifecycle communication, and retention.</li>
+              <li>Worked closely with cross-functional teams to improve product workflows and delivery quality.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> Expo, React Native, NestJS, Firebase, AWS, React.js.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Full Stack Developer · Green Media Tech</span>
+              <span class="role-meta">Apr 2024 – Feb 2025 · Da Nang (Fitness startup)</span>
+            </div>
+            <ul class="clean">
+              <li>Built the project from the ground up — mobile app, admin web, landing page, backend, deployment, infrastructure.</li>
+              <li>Designed multiple product phases in Figma; iterated UI/UX based on Product Owner feedback.</li>
+              <li>Set up S3, Google Cloud, Firebase services, App Distribution, Play Store, App Store deployments.</li>
+              <li>Implemented CI/CD pipelines; organized tasks via GitLab and Lark Kanban.</li>
+              <li>Conducted AI training experiments with Python and Gemini AI via Google Code Lab.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React Native, React.js, React Admin, Firebase, Google Cloud Functions, Firestore, AWS S3, Python, Gemini AI.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Mobile Team Leader · Calibrate Software (Big Game Golf)</span>
+              <span class="role-meta">Jan 2024 – Aug 2024 · Remote (US)</span>
+            </div>
+            <ul class="clean">
+              <li>Led the mobile development team for a golf application built with React Native.</li>
+              <li>Conducted biweekly late-night meetings with QA, BA, PM, and U.S. clients.</li>
+              <li>Designed improved UI/UX flows for portrait/landscape — score, leaderboard, final leaderboard.</li>
+              <li>Provided technical guidance and resolved complex implementation issues.</li>
+            </ul>
+            <div class="stack"><b>Team:</b> 9 (QA, mobile, backend, BA, PM). <b>Stack:</b> React Native, Python backend.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Technical Leader / Product Owner · Retex (Retex X20)</span>
+              <span class="role-meta">Apr 2023 – Sep 2023 · Da Nang (Textile)</span>
+            </div>
+            <ul class="clean">
+              <li>Managed workflow across mobile, frontend, backend, BA, designer, and operations.</li>
+              <li>Fixed critical legacy bugs in Android Kotlin, iOS Objective-C, and Swift.</li>
+              <li>Trained interns in React.js, Node.js, and MongoDB.</li>
+              <li>Met clients for progress updates, business integration, and workflow optimization.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> Kotlin, Objective-C, Swift, Ruby on Rails, AWS, Google Cloud, React.js, Node.js, MongoDB.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Senior Mobile Developer · FWD Insurance</span>
+              <span class="role-meta">Dec 2022 – Jan 2023 · Remote (HK)</span>
+            </div>
+            <ul class="clean">
+              <li>Built FWD insurance mobile app features in a multi-country team (HK, TH, ID, KR, VN).</li>
+              <li>Managed Vietnam team members, reviewed PRs, and worked with PO on UI/UX.</li>
+              <li>Daily meetings across regions; communicated across different English accents.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React Native, Expo, Node.js, MongoDB Atlas, chart rendering, schema forms.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Senior Mobile Developer · Enouvo IT Solution</span>
+              <span class="role-meta">Nov 2020 – Aug 2022</span>
+            </div>
+            <ul class="clean">
+              <li>Delivered multiple products & outsourcing projects — KindiCare, Aciona, KuuHo, Many Dime, 10 Cents, Yem.</li>
+              <li>Trained interns, supervised developers, reviewed PRs, debugged complex issues.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React Native, native modules, Kotlin, React.js, Node.js, PostgreSQL, AWS Amplify, CI/CD.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Senior Mobile Developer · SAMO Technology JSC (Momi Insurance)</span>
+              <span class="role-meta">Nov 2019 – Jun 2020 · Da Nang</span>
+            </div>
+            <ul class="clean">
+              <li>Developed Momi — online insurance, fund certificates, and news.</li>
+              <li>Resolved tester and customer issues across UI, flow, upgrades, and production bugs.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React Native, React.js, Node.js, MongoDB.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Senior Mobile Developer · Enouvo IT Solution</span>
+              <span class="role-meta">Mar 2016 – Sep 2019</span>
+            </div>
+            <ul class="clean">
+              <li>Worked on KuuHo, Comfort as Home, and Enouvo Space across mobile, frontend, backend, DevOps, QA.</li>
+              <li>Built early React Native apps and native modules connecting iOS/Android native code via the JS bridge.</li>
+              <li>Deployed and submitted apps to stores; mentored junior developers.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React Native, React.js, Node.js, MongoDB, PostgreSQL, native modules.</div>
+          </div>
+
+          <div class="role">
+            <div class="role-header">
+              <span class="role-title">Junior 2 Game Developer · Gameloft</span>
+              <span class="role-meta">Apr 2014 – Mar 2016 · Da Nang</span>
+            </div>
+            <ul class="clean">
+              <li>Worked on 2D/3D games — Ninja Up, Dizzy Fruit, Football 2016, NOVA 3.</li>
+              <li>Fixed UI/UX issues, crashes, freezes, and runtime memory problems.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> JNI, OpenGL ES, Java, Objective-C, C/C++, J2ME, Lua, Python, Bash/Shell.</div>
+          </div>
+        </div>
+
+        <!-- TECHNICAL -->
+        <div class="tab-pane hidden" id="tabs-technical" role="tabpanel" data-tab-anchor>
+
+          <h2 class="section">React Native · 8+ years</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>State Management</b> — Redux, Redux Toolkit, RTK Query, Redux Saga, Redux Persist, Context API.</li>
+            <li><b>Data Fetching</b> — React Query (TanStack Query), Apollo Client (GraphQL), Axios, fetch.</li>
+            <li><b>Storage</b> — <b>react-native-mmkv</b>, AsyncStorage, native Android storage, migration of old persisted data to new versions (iOS).</li>
+            <li><b>Lists</b> — FlatList, Shopify FlashList.</li>
+            <li><b>Styling</b> — StyleSheet, NativeWind (Tailwind for RN), Tamagui, theming + dark mode.</li>
+            <li><b>Navigation</b> — <span id="subLi1">React Navigation</span>, <span id="subLi2">React Native Navigation (Wix)</span>, <span id="subLi3">React Native Router Flux</span>, Expo Router.</li>
+            <li><b>Native Modules</b> — bridge native UI and async functions to JS in Objective-C, Swift, Java, Kotlin.</li>
+            <li><b>Native code</b> — read and patch Objective-C, Swift, Java, Kotlin.</li>
+            <li><b>OTA Updates / CodePush</b>:
+              <ul class="clean">
+                <li><b>Microsoft CodePush</b> (legacy / App Center).</li>
+                <li><b>Expo Updates (EAS Update)</b>.</li>
+                <li><b>Stallion</b> — modern CodePush alternative.</li>
+              </ul>
+            </li>
+            <li><b>Firebase</b> — Auth, OTP, Notifications, Realtime DB, Cloud Functions, Crashlytics, App Distribution, DeepLink setup.</li>
+            <li><b>Camera & Media</b> — react-native-vision-camera, image-picker, video player & recorder.</li>
+            <li><b>Push & Notifications</b> — Firebase Cloud Messaging, Notifee, OneSignal, Expo Notifications.</li>
+            <li><b>Audio / Video Call</b> — Twilio, CallKeep, Jitsi.</li>
+            <li><b>Live Stream</b> — Mux.</li>
+            <li><b>Audio / Video</b> — player & recorder, background audio.</li>
+            <li><b>Real-time</b> — Socket.IO client.</li>
+            <li><b>Maps & Location</b> — Mapbox, React Native Maps, Google Maps & Places API, background geolocation tracking.</li>
+            <li><b>Crashes / SDK</b> — Firebase Crashlytics, Sentry.</li>
+            <li><b>App Permissions</b> — permission flows, store submission forms, iOS Info.plist, Android API-level handling.</li>
+            <li><b>Deep Linking</b> — Universal Links, Firebase Dynamic Links.</li>
+            <li><b>QR Code</b> — generate & scan.</li>
+            <li><b>Payments</b> — Stripe, In-App Purchase iOS & Android, store submission.</li>
+            <li><b>Auth & Social</b> — Apple Sign-In, Google, Facebook, Twitter, Zalo; biometric (FaceID / TouchID / Android biometric); sharing & posting; Firebase console & IAM setup.</li>
+            <li><b>AWS</b> — Amplify JS, aws-sdk.</li>
+            <li><b>Performance</b> — Hermes, RAM bundling, caching, FlatList pagination.</li>
+            <li><b>Security</b> — App attest, hash key, host check.</li>
+            <li><b>Multi-Environments</b> — react-native-config.</li>
+            <li><b>Localization</b> — i18next, react-intl, native localization (Info.plist permissions, app name).</li>
+            <li><b>Splash screen</b>.</li>
+            <li><b>SVG & Icons</b> — react-native-svg, React Native Vector Icons.</li>
+            <li><b>Upload / Download</b> — photo, audio, video.</li>
+            <li><b>Class & Function Components</b> — lifecycle, AppState, React Hooks (useState, useMemo, useEffect, useCallback, useImperativeHandle).</li>
+            <li><b>Migrate</b> — JS → Flow → TypeScript.</li>
+            <li><b>Languages</b> — TypeScript, JavaScript ES5 / ES6 / ESNext.</li>
+            <li><b>Code formatter & Hooks</b> — ESLint, TSLint, Prettier, Husky, lint-staged.</li>
+            <li><b>Dev Tools</b> — Reactotron, Flipper.</li>
+            <li><b>Debug</b> — Android Studio, Xcode, command line (adb logcat).</li>
+            <li><b>Connect API</b> — fetch (standard lib), Axios.</li>
+            <li><b>Responsive & Rotation</b> — code for many devices including tablet; lock/unlock orientation via Navigation module and native code.</li>
+            <li><b>Date & Time</b> — Calendar, Date & Time picker.</li>
+            <li><b>Ads</b> — Google Ads, Facebook Ads.</li>
+            <li><b>Open Source</b> — fork and patch GitHub modules in native and JS code.</li>
+            <li><b>Project Setup</b> — bootstrap projects from zero with a clean, scalable structure.</li>
+          </ul>
+
+          <h2 class="section">Expo</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>Workflow</b> — managed and bare workflows; prebuild and continuous native generation.</li>
+            <li><b>Expo Router</b> — file-based routing, deep linking, layout routes.</li>
+            <li><b>EAS Build</b> — cloud iOS/Android builds, internal distribution, build profiles, signing credentials.</li>
+            <li><b>EAS Submit</b> — automated submission to App Store Connect and Google Play.</li>
+            <li><b>EAS Update</b> — OTA updates by channel / branch, runtime versions, rollback.</li>
+            <li><b>Config Plugins</b> — native iOS/Android modifications without ejecting.</li>
+            <li><b>Expo Modules API</b> — write native modules in Swift / Kotlin.</li>
+            <li><b>Expo APIs</b> — Camera, Image Picker, Notifications, AV, FileSystem, SecureStore, Location, Linking.</li>
+            <li><b>Dev tools</b> — Expo Dev Client, Expo Go.</li>
+          </ul>
+
+          <h2 class="section">Backend</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>NestJS</b> and <b>Node.js</b> services — REST and GraphQL.</li>
+            <li><b>Firebase Cloud Functions</b>.</li>
+            <li><b>Ruby on Rails</b> — maintained legacy services.</li>
+            <li><b>Databases</b> — PostgreSQL (~2 years), MongoDB (~1 year), Firestore.</li>
+          </ul>
+
+          <h2 class="section">Web Frontend</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>React.js</b> + TypeScript, <b>Next.js</b>, build tooling with <b>Vite</b>.</li>
+            <li><b>React Admin</b> — internal dashboards and CRUD back-offices.</li>
+            <li><b>UI</b> — Material UI.</li>
+            <li><b>Amplify JS</b>.</li>
+            <li><b>WordPress</b> — migration from React.js to WordPress site.</li>
+            <li>HTML / CSS fundamentals.</li>
+          </ul>
+
+          <h2 class="section">Cloud, DevOps & CI/CD</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>AWS</b> — S3, Amplify, aws-sdk.</li>
+            <li><b>Firebase / Google Cloud</b> — Cloud Functions, Cloud Storage, Firebase services.</li>
+            <li><b>CI/CD</b> — CircleCI, GitLab CI, Fastlane.</li>
+            <li><b>App Distribution</b> — Firebase App Distribution, TestFlight, App Center.</li>
+            <li><b>Deployment</b> — submitted personal and client apps to App Store and Play Store; track Apple & Google review guidelines.</li>
+            <li><b>Containers</b> — Docker, Docker Compose, PM2.</li>
+            <li><b>Scripting</b> — Bash / Shell, Python, Gradle.</li>
+          </ul>
+
+          <h2 class="section">AI / ML Integration</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>Gemini AI</b> — integrated in EFL Flashcards (personal product) and Green Media Tech experiments.</li>
+            <li><b>On-device ML</b> — ML Kit, Apple Vision (text recognition, face detection).</li>
+            <li><b>Python notebooks</b> via Google Code Lab.</li>
+          </ul>
+
+          <h2 class="section">Native Mobile & Flutter</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>iOS</b> — Swift, Objective-C, Info.plist, signing & provisioning.</li>
+            <li><b>Android</b> — Kotlin, Java, Gradle.</li>
+            <li><b>Flutter</b> — Dart; shipped Bill Scanner utility app.</li>
+          </ul>
+
+          <h2 class="section">Game Development (Gameloft)</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>OpenGL ES</b> — 2D / 3D, shader, animation.</li>
+            <li><b>Engines</b> — Cocos2D, Unity (shipped two Unity games to App Store and Play Store).</li>
+            <li><b>Languages</b> — C / C++, Java, Objective-C, Lua, Python, JNI.</li>
+          </ul>
+
+          <h2 class="section">Design</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>Figma</b> (primary), Sketch, Zeplin.</li>
+            <li><b>Adobe</b> — Photoshop, Illustrator.</li>
+            <li><b>Material Design</b>.</li>
+            <li>Can produce draft UI directly in code when no design exists.</li>
+          </ul>
+
+          <h2 class="section">Source Control</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>Git</b> — flow, command line, GUI tools (SourceTree, GitHub).</li>
+            <li><b>SVN</b>.</li>
+            <li><b>GitHub, GitLab, Bitbucket</b>.</li>
+            <li>Contributed to many GitHub modules in native and JS code.</li>
+          </ul>
+
+          <h2 class="section">Testing</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>Unit</b> — Jest, React Native Testing Library.</li>
+            <li><b>E2E</b> — Detox, Maestro.</li>
+            <li><b>Manual QA</b> — Firebase Test Lab, physical iOS / Android test matrices.</li>
+          </ul>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="tab-pane hidden" id="tabs-projects" role="tabpanel" data-tab-anchor>
+          <h2 class="section">Freelance & Client Projects</h2>
+          <div class="section-rule"></div>
+
+          <div class="grid-2">
+            <div class="project">
+              <div class="project-title">GolfLync <span class="project-meta">— U.S. client · Apr 2023</span></div>
+              <p>Golf social networking platform for 100,000+ U.S. golfers. Built with BA, designer, tester, PO, backend, frontend, PM.</p>
+              <div class="stack"><b>Stack:</b> React Native, Node.js.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Ask Your Genie — Devtify <span class="project-meta">· Jan–Apr 2023</span></div>
+              <p>Social app to ask famous people questions; gems / coins payment flow.</p>
+              <div class="stack"><b>Stack:</b> React Native, React.js, Node.js, React Query.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Partle <span class="project-meta">— Freelance</span></div>
+              <p>Event hosting platform; website booking and Stripe payments.</p>
+              <div class="stack"><b>Stack:</b> React Native, Stripe.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Vorship <span class="project-meta">— Freelance</span></div>
+              <p>Worship platform — livestreamed services with real-time communication.</p>
+              <div class="stack"><b>Stack:</b> React Native, Socket.IO, Node.js, MongoDB, AWS, React.js admin.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">EFL Flashcards <span class="project-meta">— Personal product</span></div>
+              <p>Flashcards mobile app — designed UI/UX in Figma, built backend and admin.</p>
+              <div class="stack"><b>Stack:</b> React Native, native modules, Firebase, AWS, Gemini AI, React Admin.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Bill Scanner <span class="project-meta">— Personal utility</span></div>
+              <p>Flutter app for scanning bills and supporting productivity workflows.</p>
+              <div class="stack"><b>Stack:</b> Flutter.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">NgoaiNguMrBien / AnhNguMB</div>
+              <p>English education website — built first in React.js, migrated to WordPress. Logo work in Photoshop.</p>
+            </div>
+            <div class="project">
+              <div class="project-title">Automation Utilities</div>
+              <p>Python and Node.js scripts to format and process .xls, .csv, and .json files.</p>
+              <div class="stack"><b>Stack:</b> Python, Node.js, Bash/Shell.</div>
+            </div>
+          </div>
+
+          <h2 class="section">Earlier Product & Outsourcing — Enouvo IT</h2>
+          <div class="section-rule"></div>
+          <div class="grid-2">
+            <div class="project">
+              <div class="project-title">KindiCare</div>
+              <p>Platform to find and compare nearby child care centers.</p>
+              <div class="stack"><b>Stack:</b> React Native.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Aciona</div>
+              <p>Business app for managing operations and tracking driver locations.</p>
+              <div class="stack"><b>Stack:</b> React Native, Kotlin, React.js, Node.js, AWS, CircleCI.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">KuuHo</div>
+              <p>Smart city initiative for a smart, safe, supportive community.</p>
+              <div class="stack"><b>Stack:</b> React Native, native modules, PostgreSQL.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Many Dime</div>
+              <p>Event platform with ticket booking, photo sharing, facial-recognition image download.</p>
+              <div class="stack"><b>Stack:</b> React Native, AWS Amplify, AWS.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">10 Cents</div>
+              <p>Food and event booking application.</p>
+              <div class="stack"><b>Stack:</b> React Native, React.js, Node.js.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Yem</div>
+              <p>Event hosting platform delivered under a two-month deadline (Sotatek collab).</p>
+              <div class="stack"><b>Stack:</b> React Native.</div>
+            </div>
+          </div>
+
+          <h2 class="section">Games — Gameloft</h2>
+          <div class="section-rule"></div>
+          <p>Ninja Up · Dizzy Fruit · Football 2016 · NOVA 3 — iOS, Android, C/C++, Java, Obj-C, Lua, Python.</p>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="tab-pane hidden" id="tabs-contact" role="tabpanel" data-tab-anchor>
+          <h2 class="section">Get In Touch</h2>
+          <div class="section-rule"></div>
+
+          <div class="contact-list">
+            <a class="contact-row link" href="mailto:tricong09t3@gmail.com" data-tippy-content="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
+              </svg>
+              tricong09t3@gmail.com
+            </a>
+            <a class="contact-row link" href="tel:+84982709185" data-tippy-content="Call">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              +84 982 709 185
+            </a>
+            <a class="contact-row link" href="https://github.com/ntcong91" target="_blank" rel="noopener" data-tippy-content="Personal GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              github.com/ntcong91
+            </a>
+            <a class="contact-row link" href="https://github.com/congnguyen91" target="_blank" rel="noopener" data-tippy-content="Work GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              github.com/congnguyen91
+            </a>
+            <a class="contact-row link" href="https://facebook.com/ntcong91" target="_blank" rel="noopener" data-tippy-content="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"/></svg>
+              facebook.com/ntcong91
+            </a>
+          </div>
+
+          <h2 class="section">Languages & Education</h2>
+          <div class="section-rule"></div>
+          <ul class="clean">
+            <li><b>Vietnamese</b> — Native</li>
+            <li><b>English</b> — Working communication</li>
+            <li><b>Da Nang University of Technology</b> — Engineering · 2009–2014 · Scholarship · Team management</li>
+          </ul>
+
+          <h2 class="section">Interests</h2>
+          <div class="section-rule"></div>
+          <p>Running, martial arts, guitar, harmonica, bamboo flute, piano, English, travelling.</p>
+        </div>
+
+        <!-- CV -->
+        <div class="tab-pane hidden" id="tabs-cv" role="tabpanel" data-tab-anchor>
+          <h2 class="section">Curriculum Vitae</h2>
+          <div class="section-rule"></div>
+          <p style="margin-bottom: 14px;">
+            <a class="cv-link" href="https://drive.google.com/file/d/1Bv2FUndKKzxaoFc4ni-2rRvWbyDaevhR/view"
+              target="_blank" rel="noopener">Open in Google Drive ↗</a>
+          </p>
+          <div class="cv-frame">
+            <iframe id="iframe-cv"
+              src="https://drive.google.com/file/d/1Bv2FUndKKzxaoFc4ni-2rRvWbyDaevhR/preview"
+              frameborder="0" allowfullscreen
+              title="Vincent Nguyen CV"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
   <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
   <script src="https://unpkg.com/tippy.js@4"></script>
   <script src="./scripts/includeHTML.js"></script>
   <script src="./scripts/themes.js"></script>
   <script src="./scripts/index.js"></script>
-  <!-- SCRIPTS -->
-
-  <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
-
-    <!--Main Col-->
-    <div id="profile"
-      class="w-full lg:w-5/5 mt-6 mb-6 rounded-lg lg:rounded-l-lg lg:rounded-r-lg shadow-2xl bg-white opacity-86 mx-6 lg:mx-0">
-      <ul
-        class="nav nav-tabs flex flex-row md:flex-row justify-center list-none border-b-0 pl-0 mb-4 pl-3 focus-within\:border-green-600"
-        id="tabs-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <a onclick="changeTab(event, 0)" href="#tabs-profile"
-            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-green-600"
-            id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
-            aria-controls="tabs-profile" aria-selected="false">SUMMARY</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a onclick="changeTab(event, 1)" href="#tabs-skill"
-            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
-            id="tabs-detail-tab" data-bs-toggle="pill" data-bs-target="#tabs-skill" role="tab"
-            aria-controls="tabs-skill" aria-selected="false">TECHNICAL</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a onclick="changeTab(event, 2)" href="#tabs-contact"
-            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 px-3 py-3 my-2 hover:border-green-100 hover:bg-gray-100 focus:border-transparent border-b-4 border-transparent"
-            id=" tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
-            aria-controls="tabs-contact" aria-selected="false">CONTACTS</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="tabs-tabContent">
-        <div class="tab-pane fade show active" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-          <iframe id="iframe-cv" src="https://drive.google.com/file/d/1Bv2FUndKKzxaoFc4ni-2rRvWbyDaevhR/preview"
-            frameborder="0" allowfullscreen style="overflow: hidden; height:580px; width: 100%"></iframe>
-        </div>
-        <div class="tab-pane fade show hidden" id="tabs-skill" role="tabpanel" aria-labelledby="tabs-skill-tab">
-          <div class="p-4 md:p-12 text-center lg:text-left mt-12">
-            <!-- Image for mobile view-->
-            <img src="images/imgProfile.png"
-              class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" />
-
-            <h1 class="text-3xl font-bold pt-8 lg:pt-0">Cong Nguyen</h1>
-            <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">
-              <svg class="h-4 fill-current text-green-600 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path
-                  d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
-              </svg>
-              Senior Mobile Developer
-            </p>
-            <p class="pt-2 text-base font-regular flex items-center justify-center lg:justify-start">
-              <svg class="h-4 fill-current text-green-600 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path
-                  d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm7.75-8a8.01 8.01 0 0 0 0-4h-3.82a28.81 28.81 0 0 1 0 4h3.82zm-.82 2h-3.22a14.44 14.44 0 0 1-.95 3.51A8.03 8.03 0 0 0 16.93 14zm-8.85-2h3.84a24.61 24.61 0 0 0 0-4H8.08a24.61 24.61 0 0 0 0 4zm.25 2c.41 2.4 1.13 4 1.67 4s1.26-1.6 1.67-4H8.33zm-6.08-2h3.82a28.81 28.81 0 0 1 0-4H2.25a8.01 8.01 0 0 0 0 4zm.82 2a8.03 8.03 0 0 0 4.17 3.51c-.42-.96-.74-2.16-.95-3.51H3.07zm13.86-8a8.03 8.03 0 0 0-4.17-3.51c.42.96.74 2.16.95 3.51h3.22zm-8.6 0h3.34c-.41-2.4-1.13-4-1.67-4S8.74 3.6 8.33 6zM3.07 6h3.22c.2-1.35.53-2.55.95-3.51A8.03 8.03 0 0 0 3.07 6z" />
-              </svg>
-              Danang city - Vietnam
-            </p>
-            <p class="pt-8 text-sm font-semibold">
-              🎯 Build full stacks: Mobile App - Website - Backend - UI - UX -
-              DevOps - Marketing.
-            </p>
-
-            <!-- SKILL SECTION -->
-            <div class="content-start">
-              <div class="content-start text-left">
-                <!-- REACT NATIVE -->
-                <h2 class="mt-6 text-lg font-semibold text-green-600">
-                  React Native (more than 6.5 years)
-                </h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>
-                    <b>Firebase</b>: Auth, OTP, Notification, RealTime
-                    Database, Functions
-                  </li>
-                  <li><b>Audio, Video Call</b>: Twilio, CallKeep</li>
-                  <li><b>Live stream</b>: Mug</li>
-                  <li><b>AWS</b>: Amplify js, aws-sdk</li>
-                  <li><b>Graphql</b></li>
-                  <li><b>DeepLink</b>: Universal, Setup Firebase DeepLink</li>
-                  <li>
-                    <b>GeoLocation</b>: React Native Background GeoLocation
-                    Tracking
-                  </li>
-                  <li>
-                    <b>App Permissions</b>: Permission flow, submit form to
-                    store, Platform iOS, API level on Android
-                  </li>
-                  <li><b>QR Code</b>: Generate & Scan</li>
-                  <li>
-                    <b>Native Modules</b>: UI & Call native code functions,
-                    promises from js code
-                  </li>
-                  <li>
-                    <b>App Navigation</b>
-                    <ul role="list" class="ml-3 list-inside list-disc space-y-1 text-left text-blue-700">
-                      <li>
-                        <span id="subLi1" class="text-black">React Native Navigation</span>
-                      </li>
-                      <li>
-                        <span id="subLi2" class="text-black">React Navigation</span>
-                      </li>
-                      <li>
-                        <span id="subLi3" class="text-black">React Native Router Flux</span>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <b>Player, Recorder</b>: Audio, Video Player & Recorder.
-                    Background Audio
-                  </li>
-                  <li><b>Socket</b>: Socket io client</li>
-                  <li>
-                    <b>Crashes tools, SDK</b>: Firebase Crashlytics, Sentry
-                  </li>
-                  <li>
-                    <b>Code Push</b>
-                  </li>
-                  <li>
-                    <b>App performance</b>: Hermes, RAM bundling, cached
-                  </li>
-                  <li>
-                    <b>Code formatter</b> Eslint, Tslint, Prettier setup
-                  </li>
-                  <li>
-                    <b>Storage</b>: redux persist, async-storage, native
-                    Android, migrate old persist local data to new version iOS
-                  </li>
-                  <li>
-                    <b>Splash screen</b>
-                  </li>
-                  <li><b>Multi-Environments</b> React Native Config</li>
-                  <li>
-                    <b>Social</b>: Auth, Sharing, Post (Facebook, Twitter,
-                    Zalo, Google), Setup firebase console & IAM google
-                  </li>
-                  <li>
-                    <b>Map</b>: Map Box, React Native Map, Google Map & Places
-                    API, Improve performance
-                  </li>
-                  <li><b>Migrate app</b>: From js to flow, ts</li>
-                  <li>
-                    <b>Debug</b>: Android Studio, Command Line (adb logcat),
-                    Xcode
-                  </li>
-                  <li>
-                    <b>Github</b>: Can fix native code, fork github modules
-                  </li>
-                  <li>
-                    <b>Connect API</b> fetch (React Native/js standard lib),
-                    axios
-                  </li>
-                  <li>
-                    <b>Redux</b>: Redux persist, redux toolkit, redux saga,
-                    RTK query, redux.
-                  </li>
-                  <li>
-                    <b>Native code</b>: Know objective-c, swift, java for
-                    Android, Kotlin
-                  </li>
-                  <li>
-                    <b>SVG & Icon Fonts</b>: React Native SVG, React Native
-                    Vector Icons
-                  </li>
-                  <li>
-                    <b>Purchasing</b>: stripe, In App Purchase iOS & Android,
-                    Submit App
-                  </li>
-                  <li><b>Upload, download</b>: Photo, Audio, Video</li>
-                  <li><b>Security</b>: App checked, hash key, host</li>
-                  <li><b>Pagination</b>: FlatList</li>
-                  <li>
-                    <b>Class Component, Function Component LifeCycle,
-                      AppState</b>
-                  </li>
-                  <li>
-                    <b>Localization</b>: js localization lib, native
-                    localization likes info.plist localization (permissions,
-                    app name)
-                  </li>
-                  <li>
-                    <b>React Hooks</b>: useState, useMemo, useEffect,
-                    useCallback, useImperialHandle
-                  </li>
-                  <li><b>typescript, javascript ES5, ES6, ESNext</b></li>
-                  <li>
-                    <b>Setup Project</b>: Can setup project from beginning
-                    with good structure
-                  </li>
-                  <li>
-                    <b>Responsive & rotation</b>: Code for many devices,
-                    tablet, lock & unlock orientation by Navigation module,
-                    native code.
-                  </li>
-                  <li><b>Ads</b>: Google Ads, facebook ads</li>
-                  <li><b>Date, Time</b>: Calendar, Date & Time picker</li>
-                </ul>
-                <br />
-              </div>
-
-              <!--- OTHER SKILLS -->
-              <div class="content-start text-left">
-                <h2 class="mt-6 text-lg font-semibold text-green-600">
-                  Flutter
-                </h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>Learn dart language</li>
-                  <li>Read docs & coding style guidelines</li>
-                  <li>Install packages/modules</li>
-                  <li>Code app for my client.</li>
-                </ul>
-              </div>
-              <div class="mt-6 mb-3content-start text-left">
-                <h2 class="mt-6 text-lg font-semibold text-green-600">
-                  OpenGL - JNI (Game)
-                </h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>
-                    <b>Languages</b>: C++, Java, Objective-C or Swift, Python
-                  </li>
-                  <li><b>OpenGL</b>: Animation, 3D, 2D, Shader</li>
-                </ul>
-              </div>
-              <div class="mt-6 mb-3content-start text-left">
-                <h2 class="mt-6 text-lg font-semibold text-green-600">
-                  Unity & Cocos (Game)
-                </h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>Build many cocos & unity apps.</li>
-                  <li>Deployed two unity games to AppleStore, PlayStore</li>
-                </ul>
-              </div>
-
-              <div class="content-start text-left">
-                <h2 class="mt-6 text-lg font-semibold text-green-600">Web</h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>Know basic html, css</li>
-                  <li>WordPress</li>
-                  <li>ReactJS</li>
-                </ul>
-              </div>
-              <div class="content-start text-left">
-                <h2 class="mt-6 text-lg font-semibold text-green-600">
-                  Back End & Dev-ops
-                </h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>Deployed my personal app to the stores</li>
-                  <li>
-                    Deployed many mobile applications to AppStore, PlayStore
-                  </li>
-                  <li>
-                    Know & update frequently PlayStore, AppleStore guidelines,
-                    rules.
-                  </li>
-                  <li>
-                    <b>App distribution</b>: firebase, fastlane, test-flight,
-                    AppCenter
-                  </li>
-                  <li>Setup app with firebase, apple developer profile</li>
-                  <li>Know docker, docker compose, pm2</li>
-                  <li>Know FastLane</li>
-                  <li>Circle CI</li>
-                  <li>Can write bash, python, gradle scripts</li>
-                  <li>Firebase cloud functions</li>
-                  <li>Amplify setup on AWS</li>
-                  <li>Deployed personal website ReactJs & node, wordpress</li>
-                  <li>Postgresql: two years</li>
-                  <li>Mongodb: one year</li>
-                </ul>
-              </div>
-              <!-- DESIGN -->
-              <div class="content-start text-left">
-                <h2 class="mt-6 text-lg font-semibold text-green-600">
-                  Design
-                </h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>Material Design</li>
-                  <li>Adobe PhotoShop</li>
-                  <li>Adobe Illustrator</li>
-                  <li>Figma</li>
-                  <li>ZepLin</li>
-                  <li>Sketch</li>
-                  <li>
-                    Have Design mindcept & can code draft version without
-                    available design
-                  </li>
-                </ul>
-              </div>
-              <!-- GIT -->
-              <div class="content-start text-left">
-                <h2 class="mt-6 text-lg font-semibold text-green-600">
-                  Source Control: Git, Svn
-                </h2>
-                <div class="w-2/5 mb-4 mt-2 border-b-4 border-green-500 opacity-75 content-start"></div>
-                <ul role="list" class="list-inside list-disc space-y-1 max-w-none text-left">
-                  <li>Svn</li>
-                  <li>Github</li>
-                  <li>Bit Bucket</li>
-                  <li>Gitlab</li>
-                  <li>
-                    Contribute for many modules on Github native code, js code
-                  </li>
-                  <li>
-                    Know git flow, command, git tools like source tree, github
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="w-5/5 mb-2 mt-4 border-b-4 border-green-500 opacity-75 content-start"></div>
-          </div>
-        </div>
-        <div class="tab-pane fade show hidden" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
-          <div class="mt-6 pb-16 lg:pb-0 w-5/5 lg:w-full mx-auto flex flex-col items-start justify-center">
-            <a class="link" href="https://facebook.com/ntcong91" data-tippy-content="@facebook_handle">
-              <div class="flex justify-between items-center">
-                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <title>Facebook</title>
-                  <path
-                    d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0" />
-                </svg>
-                <h2>https://facebook.com/ntcong91</h2>
-              </div>
-            </a>
-
-            <a class="link" href="https://github.com/ntcong91" data-tippy-content="@github_handle">
-              <div class="flex justify-between items-center">
-                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <title>GitHub</title>
-                  <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                </svg>
-                <h2>https://github.com/ntcong91</h2>
-              </div>
-            </a>
-
-            <a class="link" href="https://github.com/congnguyen91" data-tippy-content="@github_handle">
-              <div class="flex justify-between items-center">
-
-                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <title>GitHub</title>
-                  <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                </svg>
-                <h2>https://github.com/congnguyen91</h2>
-              </div>
-            </a>
-            <a class="link" href="tel:+84982709185">
-              <div class=" link flex justify-between items-center">
-                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
-                  <title>GitHub</title>
-                  <path
-                    d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                  </path>
-                </svg>
-                <h2>+84 982 709 185</h2>
-              </div>
-            </a>
-            <a class="link" href="mailto:tricong09t3@gmail.com">
-              <div class="flex justify-between items-center">
-                <svg class="h-6 fill-current text-gray-600 hover:text-green-600 m-3" role="img" viewBox="0 0 8 6"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z" />
-                </svg>
-                <h2>tricong09t3@gmail.com</h2>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pin to top right corner -->
-    <div class="absolute top-0 right-0 h-12 w-18 p-4">
-      <button class="js-change-theme focus:outline-none text-3xl">🌙</button>
-    </div>
-  </div>
-  <script>
-    includeHTML();
-  </script>
+  <script>includeHTML();</script>
 </body>
 
 </html>
