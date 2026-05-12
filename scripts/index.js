@@ -47,3 +47,36 @@ function onLoad() {
     changeTab(null, getInitialTabIndex(), { updateHash: false });
   });
 }
+
+function openEmail(event, address) {
+  if (event && event.currentTarget && typeof event.currentTarget.blur === "function") {
+    event.currentTarget.blur();
+  }
+
+  var gmailUrl =
+    "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(address);
+
+  var fired = false;
+  var timer = setTimeout(function () {
+    if (fired) return;
+    fired = true;
+    window.open(gmailUrl, "_blank", "noopener");
+  }, 700);
+
+  var cancel = function () {
+    if (fired) return;
+    fired = true;
+    clearTimeout(timer);
+  };
+
+  window.addEventListener("blur", cancel, { once: true });
+  document.addEventListener(
+    "visibilitychange",
+    function () {
+      if (document.hidden) cancel();
+    },
+    { once: true }
+  );
+
+  return true;
+}
