@@ -161,22 +161,24 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
+    .quick-links a:visited { color: #ffffff; }
+
     @media (hover: hover) and (pointer: fine) {
-      .quick-links a:hover {
+      .quick-links a:hover,
+      .quick-links a:visited:hover {
         background: #ffffff;
         color: var(--primary-strong);
       }
     }
 
     .quick-links a:focus { outline: none; }
-    .quick-links a:focus-visible {
+    .quick-links a:focus-visible,
+    .quick-links a:visited:focus-visible {
       background: #ffffff;
       color: var(--primary-strong);
       outline: 2px solid #ffffff;
       outline-offset: 2px;
     }
-
-    .quick-links a:visited { color: #ffffff; }
 
     /* Card */
     .card {
@@ -528,13 +530,14 @@
               <span class="role-title">Senior Full Stack Developer · Xenia.tech</span>
               <span class="role-meta">May 2025 – May 2026 · Remote</span>
             </div>
-            <div class="role-sub">Orditt & Rewarditt — retail field operations and brand rewards platforms.</div>
+            <div class="role-sub">Victra Sports, Orditt & Rewarditt — sports, retail field operations, and brand rewards platforms.</div>
             <ul class="clean">
-              <li><b>Orditt</b> — A smarter way to manage retail audits and field sales. Plan routes, log in-store data, complete sales, and generate real-time reports from one powerful app — built for teams that want faster insights and stronger on-site execution.</li>
+              <li><b>Victra Sports</b> — Contributed to key development for the sports mobile application (React Native CLI), improving usability, stability, and engagement.</li>
+              <li><b>Orditt</b> — A smarter way to manage retail audits and field sales. Built end-to-end across mobile (Expo), web admin (Vite + Material UI), and backend (Node.js + NestJS). Plan routes, log in-store data, complete sales, and generate real-time reports from one powerful app — built for teams that want faster insights and stronger on-site execution.</li>
               <li><b>Rewarditt</b> — Gives UK shop owners instant access to exclusive offers from leading food and beverage brands. Sign up with shop name, address, and email, browse exclusive deals, and tap Redeem to order directly on the brand's website.</li>
               <li>Worked closely with cross-functional teams to improve product workflows, delivery quality, and end-user engagement.</li>
             </ul>
-            <div class="stack"><b>Stack:</b> Expo, React Native, NestJS, MongoDB, Supabase, AWS, React.js.</div>
+            <div class="stack"><b>Stack:</b> React Native CLI, Expo, NestJS, Node.js, Vite, Material UI, MongoDB, Supabase, AWS.</div>
           </div>
 
           <div class="role">
@@ -804,9 +807,14 @@
 
           <div class="grid-2">
             <div class="project">
-              <div class="project-title">Orditt <span class="project-meta">— Mobile app · Expo</span></div>
-              <p>A smarter way to manage retail audits and field sales. Plan routes, log in-store data, complete sales, and generate real-time reports from one powerful app — built for teams that want faster insights and stronger on-site execution.</p>
-              <div class="stack"><b>Stack:</b> Expo, React Native, NestJS, MongoDB, AWS.</div>
+              <div class="project-title">Victra Sports <span class="project-meta">— Mobile app · React Native CLI</span></div>
+              <p>Sports mobile application — contributed to key development to improve usability, stability, and engagement.</p>
+              <div class="stack"><b>Stack:</b> React Native CLI, NestJS, AWS.</div>
+            </div>
+            <div class="project">
+              <div class="project-title">Orditt <span class="project-meta">— Full stack (mobile · web · backend)</span></div>
+              <p>A smarter way to manage retail audits and field sales. Built end-to-end: mobile app (Expo), admin web (Vite + Material UI), and backend services (Node.js + NestJS). Plan routes, log in-store data, complete sales, and generate real-time reports from one powerful app — built for teams that want faster insights and stronger on-site execution.</p>
+              <div class="stack"><b>Stack:</b> Expo, React Native, NestJS, Node.js, Vite, Material UI, MongoDB, AWS.</div>
             </div>
             <div class="project">
               <div class="project-title">Rewarditt <span class="project-meta">— Mobile app · Expo</span></div>
