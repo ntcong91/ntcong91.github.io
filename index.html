@@ -195,6 +195,7 @@
       top: 0;
       z-index: 20;
       display: flex;
+      flex-wrap: wrap;
       gap: 4px;
       padding: 8px 10px;
       background: var(--surface);
@@ -204,14 +205,11 @@
       -webkit-backdrop-filter: saturate(140%) blur(8px);
       list-style: none;
       margin: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
     }
 
     .tab-content {
       border-radius: 0 0 var(--radius) var(--radius);
     }
-    .tabs::-webkit-scrollbar { display: none; }
 
     .tabs li { list-style: none; }
 
@@ -373,10 +371,10 @@
     /* Theme toggle */
     .theme-toggle {
       position: fixed;
-      top: 18px;
-      right: 18px;
-      width: 40px;
-      height: 40px;
+      bottom: 30px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       border: 1px solid var(--border);
       background: var(--surface);
@@ -384,6 +382,9 @@
       font-size: 18px;
       cursor: pointer;
       z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Subtle in-page anchor for tabs */
